@@ -44,9 +44,10 @@ public class Streaming : MonoBehaviour
 
     public void UpdatePos(Vector3 pos, bool simulate)
     {
-        foreach (var layer in GetComponents<StreamingLayer>())
+        var layers = GetComponents<StreamingLayer>();
+        for (int i = 0; i < layers.Length; i++)
         {
-            layer.UpdatePos(pos, simulate);
+            layers[i].UpdatePos(pos, simulate);
         }
     }
 }
